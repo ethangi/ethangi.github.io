@@ -2,9 +2,12 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
 <meta name="generator" content="Hexo 5.4.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -13,14 +16,12 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="endeavor to learn.">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="endeavor to learn.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ethan&#39;s blog">
 <meta property="og:url" content="http://example.com/index.html">
@@ -30,161 +31,155 @@
 <meta property="article:author" content="Ethan Ng">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="http://example.com/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>Ethan's blog</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Ethan's blog</title>
   
 
 
 
 
-
-
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
+  <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">Ethan's blog</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
   </ul>
 </nav>
 
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
+
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
   </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ethan Ng"
+      src="http://qqpublic.qpic.cn/qq_public/0/0-2929423241-FB3F1EC016005CA2DD36483DED1BAFF8/0?fmt=jpg&size=56&h=700&w=700&ppv=1">
+  <p class="site-author-name" itemprop="name">Ethan Ng</p>
+  <div class="site-description" itemprop="description">endeavor to learn.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
 </div>
 
+
+
+        </div>
+      </div>
     </div>
-  </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
 
-</div>
+
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
 
-          <div class="content index posts-expand">
-            
-      
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/23/charge%E7%94%A8%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -198,31 +193,32 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/23/charge%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">charge用法</a>
+          <a href="/2021/10/23/charge%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">charge用法</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
 
-              <time title="创建时间：2021-10-23 22:23:43 / 修改时间：22:46:57" itemprop="dateCreated datePublished" datetime="2021-10-23T22:23:43+08:00">2021-10-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%8B%B1%E8%AF%AD%EF%BC%8C-%E8%AF%8D%E6%B1%87/" itemprop="url" rel="index"><span itemprop="name">英语， 词汇</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2021-10-23 22:23:43 / 修改时间：22:46:57" itemprop="dateCreated datePublished" datetime="2021-10-23T22:23:43+08:00">2021-10-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%8B%B1%E8%AF%AD%EF%BC%8C-%E8%AF%8D%E6%B1%87/" itemprop="url" rel="index"><span itemprop="name">英语， 词汇</span></a>
+        </span>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -231,8 +227,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h4 id="1、verb"><a href="#1、verb" class="headerlink" title="1、verb"></a>1、verb</h4><h6 id="a、充电"><a href="#a、充电" class="headerlink" title="a、充电"></a>a、<strong>充电</strong></h6><ul>
 <li><em>charge</em> a car’s battery</li>
 </ul>
@@ -264,18 +258,25 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/21/across%E7%9A%84%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -289,35 +290,36 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/21/across%E7%9A%84%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">across的常见用法</a>
+          <a href="/2021/10/21/across%E7%9A%84%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">across的常见用法</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
 
-              <time title="创建时间：2021-10-21 20:13:00 / 修改时间：23:30:06" itemprop="dateCreated datePublished" datetime="2021-10-21T20:13:00+08:00">2021-10-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%8B%B1%E8%AF%AD/" itemprop="url" rel="index"><span itemprop="name">英语</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%8B%B1%E8%AF%AD/%E4%BB%8B%E8%AF%8D/" itemprop="url" rel="index"><span itemprop="name">介词</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2021-10-21 20:13:00 / 修改时间：23:30:06" itemprop="dateCreated datePublished" datetime="2021-10-21T20:13:00+08:00">2021-10-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%8B%B1%E8%AF%AD/" itemprop="url" rel="index"><span itemprop="name">英语</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%8B%B1%E8%AF%AD/%E4%BB%8B%E8%AF%8D/" itemprop="url" rel="index"><span itemprop="name">介词</span></a>
+        </span>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -326,8 +328,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h4 id="1、preposition"><a href="#1、preposition" class="headerlink" title="1、preposition"></a>1、preposition</h4><h6 id="a、from-one-side-to-the-other-side-of-something-从一边到另一边"><a href="#a、from-one-side-to-the-other-side-of-something-从一边到另一边" class="headerlink" title="a、from one side to the other side of (something) 从一边到另一边"></a>a、from one side to the other side of (something) 从一边到另一边</h6><ul>
 <li>We took a ferry <strong>across</strong> the river</li>
 </ul>
@@ -356,143 +356,25 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
-  
-  
+</div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/18/%E5%BD%A2%E8%BF%91%E8%AF%8D/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="http://qqpublic.qpic.cn/qq_public/0/0-2929423241-FB3F1EC016005CA2DD36483DED1BAFF8/0?fmt=jpg&size=56&h=700&w=700&ppv=1">
-      <meta itemprop="name" content="Ethan Ng">
-      <meta itemprop="description" content="endeavor to learn.">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ethan's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/18/%E5%BD%A2%E8%BF%91%E8%AF%8D/" class="post-title-link" itemprop="url">形近词</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-10-18 21:56:50" itemprop="dateCreated datePublished" datetime="2021-10-18T21:56:50+08:00">2021-10-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 00:22:53" itemprop="dateModified" datetime="2021-10-23T00:22:53+08:00">2021-10-23</time>
-              </span>
-
-          
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
 
-      
-          <h2 id="第一组"><a href="#第一组" class="headerlink" title="第一组"></a>第一组</h2><ul>
-<li><p>pertinent 相关的</p>
-</li>
-<li><p>pertinacious </p>
-</li>
-<li><p>tenacious</p>
-</li>
-<li><p>impertinent 粗鲁的</p>
-</li>
-</ul>
-<h2 id="第二组"><a href="#第二组" class="headerlink" title="第二组"></a>第二组</h2><ul>
-<li>macerate 浸泡(使柔软)</li>
-<li>maculate 玷污 破坏</li>
-<li>emaciate 削弱</li>
-</ul>
-<h2 id="第三组"><a href="#第三组" class="headerlink" title="第三组"></a>第三组</h2><ul>
-<li>tractable</li>
-<li>tactful</li>
-<li>tactile</li>
-</ul>
-<h2 id="第四组"><a href="#第四组" class="headerlink" title="第四组"></a>第四组</h2><ul>
-<li>penacea 万能药、万灵药</li>
-<li>penance 忏悔</li>
-</ul>
-<h2 id="第五组"><a href="#第五组" class="headerlink" title="第五组"></a>第五组</h2><ul>
-<li>convivial</li>
-<li>vivacious</li>
-</ul>
-<h2 id="第六组"><a href="#第六组" class="headerlink" title="第六组"></a>第六组</h2><ul>
-<li>cardinal</li>
-<li>cordial</li>
-</ul>
-<h2 id="第七组"><a href="#第七组" class="headerlink" title="第七组"></a>第七组</h2><ul>
-<li>resonant 回响的、共鸣的、声音洪亮的</li>
-<li>consonant 一致的</li>
-</ul>
-<h2 id="第八组"><a href="#第八组" class="headerlink" title="第八组"></a>第八组</h2><ul>
-<li>govern 管理 统治 支配 控制</li>
-<li>government 政府、管理、政体</li>
-<li>governor 统治者 管理者 州长</li>
-<li>minister 牧师大臣</li>
-<li>administer 管理、执行、实施</li>
-<li>ministry </li>
-<li>administrate 管理 支配 </li>
-<li>administration 管理 行政 政府</li>
-<li>administrator 管理人员 行政人员</li>
-</ul>
-<h2 id="第九组"><a href="#第九组" class="headerlink" title="第九组"></a>第九组</h2><ul>
-<li><p>precede 先于、领先、优于</p>
-</li>
-<li><p>preceding 在先的、在前的</p>
-</li>
-<li><p>precedent 先例、前例 在前的</p>
-</li>
-<li><p>precedence 优先级 ≈ priority</p>
-</li>
-<li><p>proceed 前进 继续 开始 发生</p>
-</li>
-<li><p>proceeding 行动 进程</p>
-</li>
-</ul>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/18/%E5%90%8C%E4%B9%89%E8%AF%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -506,22 +388,23 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/18/%E5%90%8C%E4%B9%89%E8%AF%8D/" class="post-title-link" itemprop="url">同义词</a>
+          <a href="/2021/10/18/%E5%90%8C%E4%B9%89%E8%AF%8D/" class="post-title-link" itemprop="url">同义词</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
 
-              <time title="创建时间：2021-10-18 21:56:50 / 修改时间：21:59:13" itemprop="dateCreated datePublished" datetime="2021-10-18T21:56:50+08:00">2021-10-18</time>
-            </span>
+      <time title="创建时间：2021-10-18 21:56:50 / 修改时间：21:59:13" itemprop="dateCreated datePublished" datetime="2021-10-18T21:56:50+08:00">2021-10-18</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -530,8 +413,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h1 id="第一组"><a href="#第一组" class="headerlink" title="第一组"></a>第一组</h1><h2 id="晦涩难懂的-难以理解的-深奥的"><a href="#晦涩难懂的-难以理解的-深奥的" class="headerlink" title="晦涩难懂的 难以理解的 深奥的"></a>晦涩难懂的 难以理解的 深奥的</h2><ul>
 <li>obscure</li>
 <li>cryptic(有隐含义的)</li>
@@ -1235,121 +1116,157 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/18/%E5%BD%A2%E8%BF%91%E8%AF%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="http://qqpublic.qpic.cn/qq_public/0/0-2929423241-FB3F1EC016005CA2DD36483DED1BAFF8/0?fmt=jpg&size=56&h=700&w=700&ppv=1">
+      <meta itemprop="name" content="Ethan Ng">
+      <meta itemprop="description" content="endeavor to learn.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ethan's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/18/%E5%BD%A2%E8%BF%91%E8%AF%8D/" class="post-title-link" itemprop="url">形近词</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-18 21:56:50" itemprop="dateCreated datePublished" datetime="2021-10-18T21:56:50+08:00">2021-10-18</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-10-23 00:22:53" itemprop="dateModified" datetime="2021-10-23T00:22:53+08:00">2021-10-23</time>
+      </span>
+
   
-
-
-  
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
+</div>
 
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
+      </header>
 
-  <aside class="sidebar">
-    <div class="sidebar-inner">
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="第一组"><a href="#第一组" class="headerlink" title="第一组"></a>第一组</h2><ul>
+<li><p>pertinent 相关的</p>
+</li>
+<li><p>pertinacious </p>
+</li>
+<li><p>tenacious</p>
+</li>
+<li><p>impertinent 粗鲁的</p>
+</li>
+</ul>
+<h2 id="第二组"><a href="#第二组" class="headerlink" title="第二组"></a>第二组</h2><ul>
+<li>macerate 浸泡(使柔软)</li>
+<li>maculate 玷污 破坏</li>
+<li>emaciate 削弱</li>
+</ul>
+<h2 id="第三组"><a href="#第三组" class="headerlink" title="第三组"></a>第三组</h2><ul>
+<li>tractable</li>
+<li>tactful</li>
+<li>tactile</li>
+</ul>
+<h2 id="第四组"><a href="#第四组" class="headerlink" title="第四组"></a>第四组</h2><ul>
+<li>penacea 万能药、万灵药</li>
+<li>penance 忏悔</li>
+</ul>
+<h2 id="第五组"><a href="#第五组" class="headerlink" title="第五组"></a>第五组</h2><ul>
+<li>convivial</li>
+<li>vivacious</li>
+</ul>
+<h2 id="第六组"><a href="#第六组" class="headerlink" title="第六组"></a>第六组</h2><ul>
+<li>cardinal</li>
+<li>cordial</li>
+</ul>
+<h2 id="第七组"><a href="#第七组" class="headerlink" title="第七组"></a>第七组</h2><ul>
+<li>resonant 回响的、共鸣的、声音洪亮的</li>
+<li>consonant 一致的</li>
+</ul>
+<h2 id="第八组"><a href="#第八组" class="headerlink" title="第八组"></a>第八组</h2><ul>
+<li>govern 管理 统治 支配 控制</li>
+<li>government 政府、管理、政体</li>
+<li>governor 统治者 管理者 州长</li>
+<li>minister 牧师大臣</li>
+<li>administer 管理、执行、实施</li>
+<li>ministry </li>
+<li>administrate 管理 支配 </li>
+<li>administration 管理 行政 政府</li>
+<li>administrator 管理人员 行政人员</li>
+</ul>
+<h2 id="第九组"><a href="#第九组" class="headerlink" title="第九组"></a>第九组</h2><ul>
+<li><p>precede 先于、领先、优于</p>
+</li>
+<li><p>preceding 在先的、在前的</p>
+</li>
+<li><p>precedent 先例、前例 在前的</p>
+</li>
+<li><p>precedence 优先级 ≈ priority</p>
+</li>
+<li><p>proceed 前进 继续 开始 发生</p>
+</li>
+<li><p>proceeding 行动 进程</p>
+</li>
+</ul>
 
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Ethan Ng"
-      src="http://qqpublic.qpic.cn/qq_public/0/0-2929423241-FB3F1EC016005CA2DD36483DED1BAFF8/0?fmt=jpg&size=56&h=700&w=700&ppv=1">
-  <p class="site-author-name" itemprop="name">Ethan Ng</p>
-  <div class="site-description" itemprop="description">endeavor to learn.</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">4</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-
-
-
-      </div>
-
+      
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
 
 
-      </div>
-    </main>
 
-    <footer class="footer">
-      <div class="footer-inner">
-        
 
-        
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
@@ -1357,36 +1274,18 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Ethan Ng</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
-<script src="/js/utils.js"></script>
+  
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
 
 
 
@@ -1396,24 +1295,6 @@
 
 
 
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
 
 </body>
 </html>
