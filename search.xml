@@ -720,14 +720,11 @@
     <title>形近词</title>
     <url>/2021/10/18/%E5%BD%A2%E8%BF%91%E8%AF%8D/</url>
     <content><![CDATA[<h2 id="第一组"><a href="#第一组" class="headerlink" title="第一组"></a>第一组</h2><ul>
-<li><p>pertinent 相关的</p>
-</li>
-<li><p>pertinacious </p>
-</li>
-<li><p>tenacious</p>
-</li>
-<li><p>impertinent 粗鲁的</p>
-</li>
+<li>pertinent 相关的</li>
+<li>pertinacious 顽固的</li>
+<li>tenacious 顽固的</li>
+<li>impertinent 粗鲁的</li>
+<li>tenable 无懈可击的</li>
 </ul>
 <h2 id="第二组"><a href="#第二组" class="headerlink" title="第二组"></a>第二组</h2><ul>
 <li>macerate 浸泡(使柔软)</li>
@@ -759,9 +756,10 @@
 <li>govern 管理 统治 支配 控制</li>
 <li>government 政府、管理、政体</li>
 <li>governor 统治者 管理者 州长</li>
+<li>governance 统治方式</li>
 <li>minister 牧师大臣</li>
 <li>administer 管理、执行、实施</li>
-<li>ministry </li>
+<li>ministry 部门</li>
 <li>administrate 管理 支配 </li>
 <li>administration 管理 行政 政府</li>
 <li>administrator 管理人员 行政人员</li>
@@ -779,6 +777,14 @@
 </li>
 <li><p>proceeding 行动 进程</p>
 </li>
+</ul>
+<h2 id="第十组"><a href="#第十组" class="headerlink" title="第十组"></a>第十组</h2><ul>
+<li>legislate 立法</li>
+<li>legislator 立法者</li>
+<li>legislation 法规法律立法</li>
+<li>legislative 立法的 立法机关</li>
+<li>legislature 立法机关</li>
+<li>legitimate 合理的合法的</li>
 </ul>
 ]]></content>
       <tags>
@@ -891,5 +897,197 @@
         <tag>英语</tag>
         <tag>一词多义</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Data Structures</title>
+    <url>/2021/12/05/Data-Structures/</url>
+    <content><![CDATA[<h1 id="3、Fundamental-Data-Structures"><a href="#3、Fundamental-Data-Structures" class="headerlink" title="3、Fundamental Data Structures"></a>3、Fundamental Data Structures</h1><h2 id="3-1-Using-Arrays"><a href="#3-1-Using-Arrays" class="headerlink" title="3.1 Using Arrays"></a>3.1 Using Arrays</h2><p>In this section, we explore a few applications of arrays—the concrete data structures introduced in Section 1.3 that access their entries using integer indices.</p>
+<p>在这部分，我们探索了一些数组的应用——具体的数据结构【被介绍（在Section1.3中）的】【访问这些数据结构的记录/通过使用整数下标/】。</p>
+<h3 id="3-1-1-Storing-Game-Entries-in-an-Array"><a href="#3-1-1-Storing-Game-Entries-in-an-Array" class="headerlink" title="3.1.1 Storing Game Entries in an Array"></a>3.1.1 Storing Game Entries in an Array</h3><p>The ﬁrst application we study is storing a sequence of high score entries for a video game in an array. This is representative of many applications in which a sequence of objects must be stored. We <strong>could just as easily have</strong> chosen to store records for patients in a hospital or the names of players on a football team. Nevertheless, let us focus on storing high score entries, which is a simple application that is already rich enough to present some important data-structuring concepts.</p>
+<p>第一个应用（我们学习的）是存储一系列高分记录（用于一个电子游戏的）/在一个数组中/。这是代表性的【在很多应用中（在这些应用里一系列对象应该被储存在里面）】。我们可能会/同样容易/选择储存病历（给病人）/在一个医院中/或者（选择储存）选手的名字（一个足球队中）。尽管如此，让我们聚焦于储存高分记录，一个简单的应用（已经足够丰富去展现一些重要的数据结构化的观念）</p>
+<p>To begin, we consider what information to include in an object representing a high score entry. Obviously, one component to include is an integer representing the score itself, which we identify as score. Another useful thing to include is the name of the person earning this score, which we identify as name. We could go on from here, adding ﬁelds representing the date the score was earned or game statistics that led to that score. However, we omit such details to keep our example simple. A Java class, Game Entry , representing a game entry, is given in Code Fragment 3.1.</p>
+<p>首先，我们考虑什么信息需要包括/在一个对象（表示一个高分的记录的）中/。显然，一个组成部分（需要包括的）是一个整型（表示分数它本身的），（我们标识为score的）。其他有用的东西（需要被包括的）是（获得这个分数的）人的名字，（我们标识为name的）。我们本应该从这里开始，添加字段【表示日期（这个分数被获得的时间的）的】或者字段【表示游戏统计数据（导致这个分数）的】。但是，我们忽略了这些细节（保持我们我们例子足够简单的）。一个Java类called游戏记录（表示一个游戏记录的），被给出/在代码块3.1中/。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GameEntry</span> </span></span><br><span class="line"><span class="class"></span>&#123; </span><br><span class="line">  <span class="keyword">private</span> String name; <span class="comment">// name of the p erson earnin g this score </span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> score ; <span class="comment">// the score value </span></span><br><span class="line">  <span class="comment">/** Constructs a game entry with given parameters.. */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">GameEntry</span><span class="params">( String n, <span class="keyword">int</span> s)</span> </span>&#123;</span><br><span class="line">    name = n;</span><br><span class="line">    score = s;</span><br><span class="line">	&#125; </span><br><span class="line">  <span class="comment">/** Returns the name ﬁeld. */</span> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> name; &#125; </span><br><span class="line">  <span class="comment">/** Returns the score ﬁeld. */</span> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getScore</span> <span class="params">()</span> </span>&#123; <span class="keyword">return</span> score; &#125; </span><br><span class="line">  <span class="comment">/** Returns a string representation of this entry . */</span> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="string">&quot;(&quot;</span> + name + <span class="string">&quot;, &quot;</span> + score + <span class="string">&quot;)&quot;</span> ; &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>Java code for a simple GameEntry class.  Java代码（一个简单的GameEntry类）</p>
+<p>Note that we include methods for returning the name and score for a game entry object, as well as a method for returning a string representation of this entry.</p>
+<p>注意我们包含了方法/为了返回name和score（用于一个game entry对象的）/和一个方法/为了返回一个字符串表示（这个entry的）/。</p>
+<h4 id="A-Class-for-High-Scores"><a href="#A-Class-for-High-Scores" class="headerlink" title="A Class for High Scores"></a>A Class for High Scores</h4><p>To maintain a sequence of high scores, we develop a class named Scoreboard. A scoreboard is limited to a certain number of high scores that can be saved; once that limit is reached, a new score only qualiﬁes for the scoreboard if it is strictly higher than the lowest “high score” on the board. The length of the desired scoreboard may depend on the game, perhaps 10, 50, or 500. Since that limit may vary, we allow it to be speciﬁed as a parameter to our Scoreboard constructor.</p>
+<p>为了维护一系列高分，我们开发了一个类（叫做记分牌）。一个记分牌被控制在某个特定数量的high scores（可以被保存的）；一旦达到界限，一个新的分数有资格被记录当前仅当这个新的分数精确地超过最低的high score（在board上的）。这个理想的scoreboard的长度可以取决于这个game，可能是10，50，500。既然这个limit可以变化，所以我们允许它被指定为一个参数给scoreboard的构造器。</p>
+<p>Internally, we will use an array named board to manage the GameEntry instances that represent the high scores. The array is allocated with the speciﬁed maximum capacity, but all entries are initially null. As entries are added, we will maintain them from highest to lowest score, starting at index 0 of the array. We illustrate a typical state of the data structure in Figure 3.1, and give Java code to construct such a data structure in Code Fragment 3.2.</p>
+<p>在内部，我们会使用一个array（叫做board）/来管理这个GameEntry的所有实例（表示high score的）/。这个array被分配/以指定的最大容量/，但是所有entries开始是null。随着entries被添加，我们维护他们/从最高分到最低分/，开始/在下标0（数组的）/。我们插图了一个典型的状态（数据结构的）在图像3.1，并且给出了Java代码构建这样一个结构/在代码块3.2中/。</p>
+<p>![image-20211205025305519](/Users/k/Library/Application Support/typora-user-images/image-20211205025305519.png)</p>
+<p>一个长度为10的数组的插图（储存引用六个GameEntry对象）/在0-5的单元中/；其余的是null</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/** Class for storin g hi g h scores in an arra y in nondecreasin g order. */</span> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Scoreboard</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> numEntries = <span class="number">0</span> ; </span><br><span class="line">  <span class="keyword">private</span> GameEntry[] board ;</span><br><span class="line"><span class="comment">//number of actual entries</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// array of game entries ( names &amp; scores ) </span></span><br><span class="line"><span class="comment">/** Constructs an empty scoreboard with the given capacity for storing entries. */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Scoreboard</span> <span class="params">( <span class="keyword">int</span> capacity)</span> </span>&#123; </span><br><span class="line">  board = <span class="keyword">new</span> GameEntry [capacity] ;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//more methods will go here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Adding-an-Entry"><a href="#Adding-an-Entry" class="headerlink" title="Adding an Entry"></a>Adding an Entry</h3><p>One of the most common updates we might want to make to a Scoreboard is to add a new entry. Keep in mind that not every entry will necessarily qualify as a high score. If the board is not yet full, any new entry will be retained. Once the board is full, a new entry is only retained if it is strictly better than one of the other scores, in particular, the last entry of the scoreboard, which is the lowest of the high scores.</p>
+<p>一个最平常的更新（我们可能想要去制作给Scoreboard的）是添加一点新entry。牢记不是每个entry一定有资格成为high score。如果这个board还没有满，那么任何一个entry会被保留。一旦board man了，一个新的entry只能被保留/在它比一个其他的分数（尤其是最后的entry）高的情况下/</p>
+<p>Code Fragment 3.3 provides an implementation of an update method for the Scoreboard class that considers the addition of a new game entry.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/** Attempt to add a new score to the collection (if it is high enough) */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(GameEntry e)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> newScore = e.getScore( );</span><br><span class="line">  <span class="comment">//is the new entry e really a high score?</span></span><br><span class="line">	<span class="keyword">if</span> (numEntries &lt; board.length || newScore &gt; board[numEntries-<span class="number">1</span>].getScore()) &#123;</span><br><span class="line">		<span class="keyword">if</span> (numEntries &lt; board.length) <span class="comment">// no score drops from the board</span></span><br><span class="line">			numEntries++;								<span class="comment">// so overall number increases</span></span><br><span class="line">		<span class="comment">// shift any lower scores rightward to make room for the new entry</span></span><br><span class="line">		<span class="keyword">int</span> j= numEntries - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; board(j-<span class="number">1</span>].getScore() &lt; newScore) &#123;</span><br><span class="line">			board [j] = board[j-<span class="number">1</span>] ;	<span class="comment">// shift entry from j-1 to j</span></span><br><span class="line">      j--;</span><br><span class="line">    &#125;</span><br><span class="line">		board[j] = e;	<span class="comment">// when done, add new entry</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;																</span><br></pre></td></tr></table></figure>
+
+<p>When a new score is considered, the ﬁrst goal is to determine whether it qualiﬁes as a high score. This will be the case (see line 13) if the scoreboard is below its capacity, or if the new score is strictly higher than the lowest score on the board.</p>
+<p>当一个新的分数被考虑，第一个目标是去决定是否它是一个高分。如果这个scoreboard低于它的容量，或者如果新的分数高于board里面最低分，就属于（13行）这种情况。</p>
+<h1 id="4、Algorithm-Analysis"><a href="#4、Algorithm-Analysis" class="headerlink" title="4、Algorithm Analysis"></a>4、Algorithm Analysis</h1><p>In a classic story, the famous mathematician Archimedes was asked to determine if a golden crown commissioned by the king was indeed pure gold, and not part silver, as an informant had claimed. Archimedes discovered a way to perform this analysis while stepping into a bath. He noted that water spilled out of the bath in proportion to the amount of him that went in. Realizing the implications of this fact, he immediately got out of the bath and ran naked through the city shouting, “Eureka, eureka!” for he had discovered an analysis tool (displacement), which, when combined with a simple scale, could determine if the king’s new crown was good or not. That is, Archimedes could dip the crown and an equal-weight amount of gold into a bowl of water to see if they both displaced the same amount. This discovery was unfortunate for the goldsmith, however, for when Archimedes did his analysis, the crown displaced more water than an equal-weight lump of pure gold, indicating that the crown was not, in fact, pure gold.</p>
+<p>在一个经典的故事中，著名的数学家阿基米德被要求测量是否一个金色的皇冠（被国王命令去做的）是纯金的/without any question/，而不是部分银的，据一位知情者所说。阿基米德发现一种方法来执行这个分析当他洗澡的时候。他注意到水从浴缸中漫出来和他进入水中部分的体积相同。意识到这个事实可能的影响，他立即从浴缸中出来并且裸奔/贯穿整个城市/喊叫因为他发现了一个分析工具（排水量），（当它和秤配合使用时，能确定国王的心皇冠是不是纯金的）。那就是说，阿基米德能够把皇冠和一个等重数量的金浸入水/来看看是否他们都取代了等量的水/。但是这个发现对金匠来说是不幸的，因为当阿基米德执行了它的分析，这个皇冠取代了更多的水比起一个等重的纯金块（皇冠体积大于纯金块），表明这个皇冠不是纯金。</p>
+<p>In this book, we are interested in the design of “good” data structures and algorithms. Simply put, a data structure is a systematic way of organizing and accessing data, and an algorithm is a step-by-step procedure for performing some task in a ﬁnite amount of time. These concepts are central to computing, but to be able to classify some data structures and algorithms as “good,” we must have precise ways of analyzing them.</p>
+<p>在这本书里，我么你对“good”数据结构和算法的设计感兴趣。简而言之，一个数据结构是一个系统的方法（组织和访问数据的），并且一个算法是一个逐步的过程用于执行一些任务/在有限的时间内/。这些概念是至关重要的对计算来说，但是为了能够将一些数据结构界定为good，我们必须有精致方法（分析他们的）。</p>
+<p>The primary analysis tool we will use in this book involves characterizing the running times of algorithms and data structure operations, with space usage also being of interest. Running time is a natural measure of “goodness,” since time is a precious resource—computer solutions should run as fast as possible. In general, the running time of an algorithm or data structure operation increases with the input size, although it may also vary for different inputs of the same size. Also, the running time is affected by the hardware environment (e.g., the processor, clock rate, memory, disk) and software environment (e.g., the operating system, programming language) in which the algorithm is implemented and executed. All other factors being equal, the running time of the same algorithm on the same input data will be smaller if the computer has, say, a much faster processor or if the implementation is done in a program compiled into native machine code instead of an interpreted implementation run on a virtual machine. We begin this chapter by discussing tools for performing experimental studies, yet also limitations to the use of experiments as a primary means for evaluating algorithm efﬁciency.</p>
+<p>主要的分析工具（我们使用的/在这本书里/）包括描述算法和数据结构操作的运行时间，/空间使用也值得我们感兴趣/。运行时间是一个天然的衡量（对于“好”的定义），因为时间是一个宝贵的资源——电脑的act of solving sth应当越快越好。总的来说，运行时间增加随着输入的规模，尽管运行时间也不同对于不同的同样规模的输入。此外，运行时间被硬件环境（处理器，时钟速率，内存，硬盘）和软件环境（操作系统，变成语言）所影响，（算法/在这些环境里面/被实现和执行的）。所有其他的因素相同的情况下，同样算法的运行时间在同样输入的情况下会是更短的如果电脑，比如说，有一个更快的处理器或者如果这个implementation被完成在一个程序（被编译为本地的机器语言而不是一个被解释在虚拟机中运行的实现）中。我们开始这个章节通过讨论用于做尝试性研究的工具也讨论实验的使用作为一个主要的方法用来评估算法效率的限制。</p>
+<p>Focusing on running time as a primary measure of goodness requires that we be able to use a few mathematical tools. In spite of the possible variations that come from different environmental factors, we would like to focus on the relationship between the running time of an algorithm and the size of its input. We are interested in characterizing an algorithm’s running time as a function of the input size. But what is the proper way of measuring it? In this chapter, we “roll up our sleeves” and develop a mathematical way of analyzing algorithms.</p>
+<p>聚焦运行时间作为一个主要的“好”的衡量需要我们能够使用一些数学工具。不管这些可能的变化（来自不同环境因素的），我们希望聚焦这个算法运行时间和输入规模的关系。我们对描述一个算法的运行时间作为一个输入规模的应变量感兴趣。但是什么事正确的方法呢？在这个章节，我们“卷起袖子”然后开发一个数学方法来分析算法。</p>
+<h2 id="4-1、Exprimental-Studies"><a href="#4-1、Exprimental-Studies" class="headerlink" title="4.1、Exprimental Studies"></a>4.1、Exprimental Studies</h2><p>note：和exprimental study是ovservational study，一个是试验性的一个是观察性的。</p>
+<p>One way to study the efﬁciency of an algorithm is to implement it and experiment by running the program on various test inputs while recording the time spent during each execution. A simple mechanism for collecting such running times in Java is based on use of the currentTimeMillis method of the System class. That method reports the number of milliseconds that have passed since a benchmark time known as the epoch (January 1, 1970 UTC). It is not that we are directly interested in the time since the epoch; the key is that if we record the time immediately before executing the algorithm and then immediately after, we can measure the elapsed time of an algorithm’s execution by computing the difference of those times. A typical way to automate this process is shown in Code Fragment 4.1.</p>
+<p>一个研究算法效率的方法是去运行它并且试验通过运行这个程序on不同的测试输入同时记录了每次执行花费的时间。一个简单的机制用于收集这样的运行时间in Java是基于System.currentTimeMillis()的使用。那个方法汇报了毫秒数（从一个基准时间【the epoch (January 1, 1970 UTC)】开始经过的时间）。我们不是对从epoch开始的时间感兴趣；关键是如果我们能够立即记录时间在执行算法之前并且立即记录时间在执行算法之后，我们能够测量这个算法执行的时间通过计算这些时间的差异。一个典型的方法使这个过程自动化的被展示在代码块4.1中。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">long</span> startTime = System.currentTimeMillis();<span class="comment">//record the starting time</span></span><br><span class="line"><span class="comment">/* (run the algorithm */</span></span><br><span class="line"><span class="keyword">long</span> endTime = System.currentTimeMillis();<span class="comment">//record the ending time</span></span><br><span class="line"><span class="keyword">long</span> elapsed = endTime - startTime;<span class="comment">//compute the elapsed time</span></span><br></pre></td></tr></table></figure>
+
+<p>***                                            Typical approach for timing an algorithm in Java.***</p>
+<p>Measuring elapsed time in this fashion provides a reasonable reﬂection of an algorithm’s efﬁciency; for extremely quick operations, Java provides a method, nanoTime, that measures in nanoseconds rather than milliseconds.</p>
+<p>测量间隔时间/以这种方式/提供了一个合理算法效率的反应；对于更加快速的操作，java提供了nanoTime()，nanoTime以毫微秒测量而不是微妙。</p>
+<p>Because we are interested in the general dependence of running time on the size and structure of the input, we should perform independent experiments on many different test inputs of various sizes. We can then visualize the results by plotting the performance of each run of the algorithm as a point with x-coordinate equal to the input size, n, and y-coordinate equal to the running time, t. Such a visualization provides some intuition regarding the relationship between problem size and execution time for the algorithm. This may be followed by a statistical analysis that seeks to ﬁt the best function of the input size to the experimental data. To be meaningful, this analysis requires that we choose good sample inputs and test enough of them to be able to make sound statistical claims about the algorithm’s running time.</p>
+<p>因为我们对运行时间对输入规模和结构的普遍的依赖，所以我们应该执行独立的实验/以很多不同的测试输入和不同规模的输入/</p>
+<h1 id="13、Text-Processing"><a href="#13、Text-Processing" class="headerlink" title="13、Text Processing"></a>13、Text Processing</h1><p>rule this out 排除</p>
+<h3 id="13-1-1、Notation-for-Character-Strings"><a href="#13-1-1、Notation-for-Character-Strings" class="headerlink" title="13.1.1、Notation for Character Strings"></a>13.1.1、Notation for Character Strings</h3><p>refer to any substring of the form P[0..j] as a prefix of P</p>
+<h2 id="13-2、Brute-Force"><a href="#13-2、Brute-Force" class="headerlink" title="13.2、Brute Force"></a>13.2、Brute Force</h2><h2 id="13-3、Boyer-Moore-Algorithm"><a href="#13-3、Boyer-Moore-Algorithm" class="headerlink" title="13.3、Boyer-Moore Algorithm"></a>13.3、Boyer-Moore Algorithm</h2><p>Heuristic is a technique designed for solving a problem more quickly when classic methods are too slow, or for finding an approximate solution classic methods fail to find any exact solution.</p>
+<p>This is achieved by trading optimality, completeness, accuracy, or precision for speed. In a way, it can be considered a shortcut.</p>
+<p>main idea   adding two potentially time-saving heuristics</p>
+<p><em><strong>Looking-glass(mirror) Heuristic</strong></em>   When testing a possible placement of the pattern against the text, perform the comparisons against the pattern from right to left. </p>
+<p><em><strong>Character-Jump Heuristic</strong></em> During the testing of a possible placement of pattern within the text, a mismatch of character text[i]=c with the corresponding character pattern[k] is handled as follows. If c is not contained anywhere in the pattern, then shift the pattern completely past text[i]=c. Otherwise, shift the pattern until an occurrence of character c gets aligned with text[i].</p>
+]]></content>
+      <tags>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/12/19/For%E7%9A%84%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<ol start="5">
+<li><p><strong>a</strong>: in order to help or cause (something)（表目的）为了，促使</p>
+<ul>
+<li>We are working <strong>for</strong> the good of humanity.</li>
+</ul>
+<p><strong>b</strong>: in order to get (something) 为了得到</p>
+<ul>
+<li>For the syntax, and for a complete parameter list, see the postconf(5) manual page (command: “man 5 postconf”).</li>
+</ul>
+</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>Pattern-matching Algorithm</title>
+    <url>/2021/12/12/Pattern-matching-Algorithm/</url>
+    <content><![CDATA[<h1 id="1-Brute-Force-Algorithm"><a href="#1-Brute-Force-Algorithm" class="headerlink" title="1.    Brute Force Algorithm"></a>1.    Brute Force Algorithm</h1><h2 id="1-1-An-implementation"><a href="#1-1-An-implementation" class="headerlink" title="1.1    An implementation"></a>1.1    An implementation</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Return the lowest index at which substring pattern begins in text (or else -1)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> textStr a text string</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> patternStr a pattern string</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">findBrute</span><span class="params">(String textStr, String patternStr)</span></span>&#123;</span><br><span class="line">  <span class="comment">//We use character arrays rather than strings to simplify indexing notation.</span></span><br><span class="line">  <span class="keyword">char</span>[] text = textStr.toCharArray();</span><br><span class="line">  <span class="keyword">char</span>[] pattern = patternStr.toCharArray();</span><br><span class="line">  <span class="keyword">int</span> n = text.length;</span><br><span class="line">  <span class="keyword">int</span> m = pattern.length;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - m + <span class="number">1</span>; i++) &#123;       <span class="comment">//try every starting index within text</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; m; k++) &#123;           <span class="comment">//k is index into pattern</span></span><br><span class="line">      <span class="keyword">if</span>( text[i + k] != pattern[k] ) &#123;   <span class="comment">//kth character of pattern matches</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(k == m - <span class="number">1</span>)&#123;                     <span class="comment">//if we reach the end of the pattern</span></span><br><span class="line">        <span class="keyword">return</span> i;                       <span class="comment">//substring text[i..i+m-1] is a match</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> -<span class="number">1</span>;                                  <span class="comment">//search failed</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-2-Performance"><a href="#1-2-Performance" class="headerlink" title="1.2    Performance"></a>1.2    Performance</h2><p>It consists of two nested loops, with the outer loop indexing through all possible starting indices of the pattern in the text, and the inner loop indexing through each character of the pattern, comparing it to its potentially corresponding character in the text.</p>
+]]></content>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Text Processing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TPO长难句</title>
+    <url>/2021/10/26/TPO%E9%95%BF%E9%9A%BE%E5%8F%A5/</url>
+    <content><![CDATA[<p>Evidence suggests that an important stimulus behind the rise of early civilizations was the development of settled agriculture, which unleashed a series of changes in the organization of human communities that culminated in the rise of large ancient empires.</p>
+<p>证据表明一个早期文明兴起的重要诱因是稳定的农业的发展，从而导致了一系列在人类社会的组织中的变化，这个社会以古帝国的产生而终结。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>完全倒装</title>
+    <url>/2021/10/27/%E5%AE%8C%E5%85%A8%E5%80%92%E8%A3%85/</url>
+    <content><![CDATA[<h4 id="1、什么是完全倒装"><a href="#1、什么是完全倒装" class="headerlink" title="1、什么是完全倒装"></a>1、什么是完全倒装</h4><ul>
+<li>主语和宾语位置互换</li>
+</ul>
+<h4 id="2、There-be-句型"><a href="#2、There-be-句型" class="headerlink" title="2、There be 句型"></a>2、There be 句型</h4><ul>
+<li>翻译为有</li>
+<li>There was a loud scream from the backstage immediately after the concert ended.</li>
+<li>There seems to be something wrong with the machine.</li>
+</ul>
+<h4 id="3、介词短语-不及物动词-主语"><a href="#3、介词短语-不及物动词-主语" class="headerlink" title="3、介词短语+不及物动词+主语"></a>3、介词短语+不及物动词+主语</h4><ul>
+<li>With the increase in population and the development of centralized authority came the emergence of the cities.</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>每日英语积累</title>
+    <url>/2021/10/24/%E6%AF%8F%E6%97%A5%E7%A7%AF%E7%B4%AF/</url>
+    <content><![CDATA[<h3 id="response"><a href="#response" class="headerlink" title="response"></a>response</h3><ul>
+<li><p>receive a response</p>
+</li>
+<li><p>in response to </p>
+<ul>
+<li>What does Mary say in response to Bob?</li>
+<li>It can come handy at times.</li>
+</ul>
+</li>
+</ul>
+<p>a joint statement/account/investigation</p>
+<p>joint pain</p>
+<p>a telling detail</p>
+<p>take the elevator</p>
+<p>hold the elevator</p>
+<p>the elevator door</p>
+<p>anatomy of Postfix = How Postfix of anatomy</p>
+<p>how these components relate to each other</p>
+<h3 id="relieve"><a href="#relieve" class="headerlink" title="relieve"></a>relieve</h3><ul>
+<li>relieve stress/pain/poverty</li>
+<li>relieve sb of sth</li>
+</ul>
+<h3 id="flavor"><a href="#flavor" class="headerlink" title="flavor"></a>flavor</h3><ul>
+<li>GitHub-flavored markdown</li>
+</ul>
+<h3 id="incompatibility"><a href="#incompatibility" class="headerlink" title="incompatibility"></a>incompatibility</h3><ul>
+<li>sexual incompatibility</li>
+</ul>
+<p>Would you have been able to forgive me?</p>
+<p>he would have been </p>
+]]></content>
+      <tags>
+        <tag>英语学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/11/10/%E8%BF%9E%E8%AF%8D/</url>
+    <content><![CDATA[<h4 id="1、并列连词"><a href="#1、并列连词" class="headerlink" title="1、并列连词"></a>1、并列连词</h4><ol>
+<li>and, but, or, so</li>
+<li>not … but ..<br> not only<br> both<br> .. and<br> neither.. nor<br> either<br> Or<br> .. rather than<br> … as well as …</li>
+</ol>
+<h4 id="2、并列连词前后语法结构需要一致"><a href="#2、并列连词前后语法结构需要一致" class="headerlink" title="2、并列连词前后语法结构需要一致"></a>2、并列连词前后语法结构需要一致</h4><ul>
+<li>正确: Students should study diligently rather than being addicted to<br>computer games.</li>
+<li>错误: Students should study diligently rather than be addicted to computer<br>games.</li>
+</ul>
+<h4 id="3、副词和介词短语（状语）-不是井列连词，不能并列两个成分"><a href="#3、副词和介词短语（状语）-不是井列连词，不能并列两个成分" class="headerlink" title="3、副词和介词短语（状语） 不是井列连词，不能并列两个成分"></a>3、副词和介词短语（状语） 不是井列连词，不能并列两个成分</h4><ul>
+<li>因为: because of / due to / owing to / thanks to / on account of / as a result of / as a<br>consequence of</li>
+<li>所以: thus, therefore, as a consequence, as a result</li>
+<li>转折: however, nevertheless, conversely, in contrast, on the contrary, on the other hand</li>
+<li>让步: admittedly, despite / in spite of</li>
+<li>递进：even</li>
+<li>无论: regardless of /disregarding</li>
+<li>目的是：to /in order to / so as to / for the sake of / for the purpose of</li>
+<li>通过做：via / by / through</li>
+<li>没有做: without</li>
+</ul>
+<h4 id="4、比较结构"><a href="#4、比较结构" class="headerlink" title="4、比较结构"></a>4、比较结构</h4><ul>
+<li><p>more…than…</p>
+</li>
+<li><p>compare…with…</p>
+</li>
+<li><p>对等</p>
+</li>
+<li><p>错误：Compared with <strong>cities</strong>, <strong>people in rural areas</strong> are happier.</p>
+</li>
+<li><p>正确：Compared with <strong>people in cities</strong>, <strong>those in rural areas</strong> are happier.</p>
+</li>
+</ul>
+<p>![image-20211102133531744](/Users/k/Library/Application Support/typora-user-images/image-20211102133531744.png)</p>
+<p>![image-20211102133707341](/Users/k/Library/Application Support/typora-user-images/image-20211102133707341.png)</p>
+]]></content>
   </entry>
 </search>

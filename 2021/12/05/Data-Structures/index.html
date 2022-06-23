@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="3、Fundamental Data Structures3.1 Using ArraysIn this section, we explore a few applications of arrays—the concrete data structures introduced in Section 1.3 that access their entries using integer ind">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data Structures">
+<meta property="og:url" content="http://example.com/2021/12/05/Data-Structures/index.html">
+<meta property="og:site_name" content="Ethan&#39;s blog">
+<meta property="og:description" content="3、Fundamental Data Structures3.1 Using ArraysIn this section, we explore a few applications of arrays—the concrete data structures introduced in Section 1.3 that access their entries using integer ind">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-04T16:13:05.000Z">
+<meta property="article:modified_time" content="2022-06-23T01:54:29.326Z">
+<meta property="article:author" content="Ethan Ng">
+<meta property="article:tag" content="Algorithm">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/12/05/Data-Structures/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/12/05/Data-Structures/","path":"2021/12/05/Data-Structures/","title":"Data Structures"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Data Structures | Ethan's blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Ethan's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#3%E3%80%81Fundamental-Data-Structures"><span class="nav-number">1.</span> <span class="nav-text">3、Fundamental Data Structures</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Using-Arrays"><span class="nav-number">1.1.</span> <span class="nav-text">3.1 Using Arrays</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-Storing-Game-Entries-in-an-Array"><span class="nav-number">1.1.1.</span> <span class="nav-text">3.1.1 Storing Game Entries in an Array</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-Class-for-High-Scores"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">A Class for High Scores</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adding-an-Entry"><span class="nav-number">1.1.2.</span> <span class="nav-text">Adding an Entry</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4%E3%80%81Algorithm-Analysis"><span class="nav-number">2.</span> <span class="nav-text">4、Algorithm Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1%E3%80%81Exprimental-Studies"><span class="nav-number">2.1.</span> <span class="nav-text">4.1、Exprimental Studies</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13%E3%80%81Text-Processing"><span class="nav-number">3.</span> <span class="nav-text">13、Text Processing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#13-1-1%E3%80%81Notation-for-Character-Strings"><span class="nav-number">3.0.1.</span> <span class="nav-text">13.1.1、Notation for Character Strings</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-2%E3%80%81Brute-Force"><span class="nav-number">3.1.</span> <span class="nav-text">13.2、Brute Force</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-3%E3%80%81Boyer-Moore-Algorithm"><span class="nav-number">3.2.</span> <span class="nav-text">13.3、Boyer-Moore Algorithm</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ethan Ng"
+      src="http://qqpublic.qpic.cn/qq_public/0/0-2929423241-FB3F1EC016005CA2DD36483DED1BAFF8/0?fmt=jpg&size=56&h=700&w=700&ppv=1">
+  <p class="site-author-name" itemprop="name">Ethan Ng</p>
+  <div class="site-description" itemprop="description">endeavor to learn.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/05/Data-Structures/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="http://qqpublic.qpic.cn/qq_public/0/0-2929423241-FB3F1EC016005CA2DD36483DED1BAFF8/0?fmt=jpg&size=56&h=700&w=700&ppv=1">
+      <meta itemprop="name" content="Ethan Ng">
+      <meta itemprop="description" content="endeavor to learn.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ethan's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Data Structures
+        </h1>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+    
+      <time title="创建时间：2021-12-05 00:13:05" itemprop="dateCreated datePublished" datetime="2021-12-05T00:13:05+08:00">2021-12-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-06-23 09:54:29" itemprop="dateModified" datetime="2022-06-23T09:54:29+08:00">2022-06-23</time>
+      </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>13k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>23 分钟</span>
+    </span>
+
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="3、Fundamental-Data-Structures"><a href="#3、Fundamental-Data-Structures" class="headerlink" title="3、Fundamental Data Structures"></a>3、Fundamental Data Structures</h1><h2 id="3-1-Using-Arrays"><a href="#3-1-Using-Arrays" class="headerlink" title="3.1 Using Arrays"></a>3.1 Using Arrays</h2><p>In this section, we explore a few applications of arrays—the concrete data structures introduced in Section 1.3 that access their entries using integer indices.</p>
+<p>在这部分，我们探索了一些数组的应用——具体的数据结构【被介绍（在Section1.3中）的】【访问这些数据结构的记录/通过使用整数下标/】。</p>
+<h3 id="3-1-1-Storing-Game-Entries-in-an-Array"><a href="#3-1-1-Storing-Game-Entries-in-an-Array" class="headerlink" title="3.1.1 Storing Game Entries in an Array"></a>3.1.1 Storing Game Entries in an Array</h3><p>The ﬁrst application we study is storing a sequence of high score entries for a video game in an array. This is representative of many applications in which a sequence of objects must be stored. We <strong>could just as easily have</strong> chosen to store records for patients in a hospital or the names of players on a football team. Nevertheless, let us focus on storing high score entries, which is a simple application that is already rich enough to present some important data-structuring concepts.</p>
+<p>第一个应用（我们学习的）是存储一系列高分记录（用于一个电子游戏的）/在一个数组中/。这是代表性的【在很多应用中（在这些应用里一系列对象应该被储存在里面）】。我们可能会/同样容易/选择储存病历（给病人）/在一个医院中/或者（选择储存）选手的名字（一个足球队中）。尽管如此，让我们聚焦于储存高分记录，一个简单的应用（已经足够丰富去展现一些重要的数据结构化的观念）</p>
+<p>To begin, we consider what information to include in an object representing a high score entry. Obviously, one component to include is an integer representing the score itself, which we identify as score. Another useful thing to include is the name of the person earning this score, which we identify as name. We could go on from here, adding ﬁelds representing the date the score was earned or game statistics that led to that score. However, we omit such details to keep our example simple. A Java class, Game Entry , representing a game entry, is given in Code Fragment 3.1.</p>
+<p>首先，我们考虑什么信息需要包括/在一个对象（表示一个高分的记录的）中/。显然，一个组成部分（需要包括的）是一个整型（表示分数它本身的），（我们标识为score的）。其他有用的东西（需要被包括的）是（获得这个分数的）人的名字，（我们标识为name的）。我们本应该从这里开始，添加字段【表示日期（这个分数被获得的时间的）的】或者字段【表示游戏统计数据（导致这个分数）的】。但是，我们忽略了这些细节（保持我们我们例子足够简单的）。一个Java类called游戏记录（表示一个游戏记录的），被给出/在代码块3.1中/。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GameEntry</span> </span></span><br><span class="line"><span class="class"></span>&#123; </span><br><span class="line">  <span class="keyword">private</span> String name; <span class="comment">// name of the p erson earnin g this score </span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> score ; <span class="comment">// the score value </span></span><br><span class="line">  <span class="comment">/** Constructs a game entry with given parameters.. */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">GameEntry</span><span class="params">( String n, <span class="keyword">int</span> s)</span> </span>&#123;</span><br><span class="line">    name = n;</span><br><span class="line">    score = s;</span><br><span class="line">	&#125; </span><br><span class="line">  <span class="comment">/** Returns the name ﬁeld. */</span> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> name; &#125; </span><br><span class="line">  <span class="comment">/** Returns the score ﬁeld. */</span> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getScore</span> <span class="params">()</span> </span>&#123; <span class="keyword">return</span> score; &#125; </span><br><span class="line">  <span class="comment">/** Returns a string representation of this entry . */</span> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="string">&quot;(&quot;</span> + name + <span class="string">&quot;, &quot;</span> + score + <span class="string">&quot;)&quot;</span> ; &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>Java code for a simple GameEntry class.  Java代码（一个简单的GameEntry类）</p>
+<p>Note that we include methods for returning the name and score for a game entry object, as well as a method for returning a string representation of this entry.</p>
+<p>注意我们包含了方法/为了返回name和score（用于一个game entry对象的）/和一个方法/为了返回一个字符串表示（这个entry的）/。</p>
+<h4 id="A-Class-for-High-Scores"><a href="#A-Class-for-High-Scores" class="headerlink" title="A Class for High Scores"></a>A Class for High Scores</h4><p>To maintain a sequence of high scores, we develop a class named Scoreboard. A scoreboard is limited to a certain number of high scores that can be saved; once that limit is reached, a new score only qualiﬁes for the scoreboard if it is strictly higher than the lowest “high score” on the board. The length of the desired scoreboard may depend on the game, perhaps 10, 50, or 500. Since that limit may vary, we allow it to be speciﬁed as a parameter to our Scoreboard constructor.</p>
+<p>为了维护一系列高分，我们开发了一个类（叫做记分牌）。一个记分牌被控制在某个特定数量的high scores（可以被保存的）；一旦达到界限，一个新的分数有资格被记录当前仅当这个新的分数精确地超过最低的high score（在board上的）。这个理想的scoreboard的长度可以取决于这个game，可能是10，50，500。既然这个limit可以变化，所以我们允许它被指定为一个参数给scoreboard的构造器。</p>
+<p>Internally, we will use an array named board to manage the GameEntry instances that represent the high scores. The array is allocated with the speciﬁed maximum capacity, but all entries are initially null. As entries are added, we will maintain them from highest to lowest score, starting at index 0 of the array. We illustrate a typical state of the data structure in Figure 3.1, and give Java code to construct such a data structure in Code Fragment 3.2.</p>
+<p>在内部，我们会使用一个array（叫做board）/来管理这个GameEntry的所有实例（表示high score的）/。这个array被分配/以指定的最大容量/，但是所有entries开始是null。随着entries被添加，我们维护他们/从最高分到最低分/，开始/在下标0（数组的）/。我们插图了一个典型的状态（数据结构的）在图像3.1，并且给出了Java代码构建这样一个结构/在代码块3.2中/。</p>
+<p>![image-20211205025305519](/Users/k/Library/Application Support/typora-user-images/image-20211205025305519.png)</p>
+<p>一个长度为10的数组的插图（储存引用六个GameEntry对象）/在0-5的单元中/；其余的是null</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Class for storin g hi g h scores in an arra y in nondecreasin g order. */</span> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Scoreboard</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> numEntries = <span class="number">0</span> ; </span><br><span class="line">  <span class="keyword">private</span> GameEntry[] board ;</span><br><span class="line"><span class="comment">//number of actual entries</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// array of game entries ( names &amp; scores ) </span></span><br><span class="line"><span class="comment">/** Constructs an empty scoreboard with the given capacity for storing entries. */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Scoreboard</span> <span class="params">( <span class="keyword">int</span> capacity)</span> </span>&#123; </span><br><span class="line">  board = <span class="keyword">new</span> GameEntry [capacity] ;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//more methods will go here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Adding-an-Entry"><a href="#Adding-an-Entry" class="headerlink" title="Adding an Entry"></a>Adding an Entry</h3><p>One of the most common updates we might want to make to a Scoreboard is to add a new entry. Keep in mind that not every entry will necessarily qualify as a high score. If the board is not yet full, any new entry will be retained. Once the board is full, a new entry is only retained if it is strictly better than one of the other scores, in particular, the last entry of the scoreboard, which is the lowest of the high scores.</p>
+<p>一个最平常的更新（我们可能想要去制作给Scoreboard的）是添加一点新entry。牢记不是每个entry一定有资格成为high score。如果这个board还没有满，那么任何一个entry会被保留。一旦board man了，一个新的entry只能被保留/在它比一个其他的分数（尤其是最后的entry）高的情况下/</p>
+<p>Code Fragment 3.3 provides an implementation of an update method for the Scoreboard class that considers the addition of a new game entry.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Attempt to add a new score to the collection (if it is high enough) */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(GameEntry e)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> newScore = e.getScore( );</span><br><span class="line">  <span class="comment">//is the new entry e really a high score?</span></span><br><span class="line">	<span class="keyword">if</span> (numEntries &lt; board.length || newScore &gt; board[numEntries-<span class="number">1</span>].getScore()) &#123;</span><br><span class="line">		<span class="keyword">if</span> (numEntries &lt; board.length) <span class="comment">// no score drops from the board</span></span><br><span class="line">			numEntries++;								<span class="comment">// so overall number increases</span></span><br><span class="line">		<span class="comment">// shift any lower scores rightward to make room for the new entry</span></span><br><span class="line">		<span class="keyword">int</span> j= numEntries - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; board(j-<span class="number">1</span>].getScore() &lt; newScore) &#123;</span><br><span class="line">			board [j] = board[j-<span class="number">1</span>] ;	<span class="comment">// shift entry from j-1 to j</span></span><br><span class="line">      j--;</span><br><span class="line">    &#125;</span><br><span class="line">		board[j] = e;	<span class="comment">// when done, add new entry</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;																</span><br></pre></td></tr></table></figure>
+
+<p>When a new score is considered, the ﬁrst goal is to determine whether it qualiﬁes as a high score. This will be the case (see line 13) if the scoreboard is below its capacity, or if the new score is strictly higher than the lowest score on the board.</p>
+<p>当一个新的分数被考虑，第一个目标是去决定是否它是一个高分。如果这个scoreboard低于它的容量，或者如果新的分数高于board里面最低分，就属于（13行）这种情况。</p>
+<h1 id="4、Algorithm-Analysis"><a href="#4、Algorithm-Analysis" class="headerlink" title="4、Algorithm Analysis"></a>4、Algorithm Analysis</h1><p>In a classic story, the famous mathematician Archimedes was asked to determine if a golden crown commissioned by the king was indeed pure gold, and not part silver, as an informant had claimed. Archimedes discovered a way to perform this analysis while stepping into a bath. He noted that water spilled out of the bath in proportion to the amount of him that went in. Realizing the implications of this fact, he immediately got out of the bath and ran naked through the city shouting, “Eureka, eureka!” for he had discovered an analysis tool (displacement), which, when combined with a simple scale, could determine if the king’s new crown was good or not. That is, Archimedes could dip the crown and an equal-weight amount of gold into a bowl of water to see if they both displaced the same amount. This discovery was unfortunate for the goldsmith, however, for when Archimedes did his analysis, the crown displaced more water than an equal-weight lump of pure gold, indicating that the crown was not, in fact, pure gold.</p>
+<p>在一个经典的故事中，著名的数学家阿基米德被要求测量是否一个金色的皇冠（被国王命令去做的）是纯金的/without any question/，而不是部分银的，据一位知情者所说。阿基米德发现一种方法来执行这个分析当他洗澡的时候。他注意到水从浴缸中漫出来和他进入水中部分的体积相同。意识到这个事实可能的影响，他立即从浴缸中出来并且裸奔/贯穿整个城市/喊叫因为他发现了一个分析工具（排水量），（当它和秤配合使用时，能确定国王的心皇冠是不是纯金的）。那就是说，阿基米德能够把皇冠和一个等重数量的金浸入水/来看看是否他们都取代了等量的水/。但是这个发现对金匠来说是不幸的，因为当阿基米德执行了它的分析，这个皇冠取代了更多的水比起一个等重的纯金块（皇冠体积大于纯金块），表明这个皇冠不是纯金。</p>
+<p>In this book, we are interested in the design of “good” data structures and algorithms. Simply put, a data structure is a systematic way of organizing and accessing data, and an algorithm is a step-by-step procedure for performing some task in a ﬁnite amount of time. These concepts are central to computing, but to be able to classify some data structures and algorithms as “good,” we must have precise ways of analyzing them.</p>
+<p>在这本书里，我么你对“good”数据结构和算法的设计感兴趣。简而言之，一个数据结构是一个系统的方法（组织和访问数据的），并且一个算法是一个逐步的过程用于执行一些任务/在有限的时间内/。这些概念是至关重要的对计算来说，但是为了能够将一些数据结构界定为good，我们必须有精致方法（分析他们的）。</p>
+<p>The primary analysis tool we will use in this book involves characterizing the running times of algorithms and data structure operations, with space usage also being of interest. Running time is a natural measure of “goodness,” since time is a precious resource—computer solutions should run as fast as possible. In general, the running time of an algorithm or data structure operation increases with the input size, although it may also vary for different inputs of the same size. Also, the running time is affected by the hardware environment (e.g., the processor, clock rate, memory, disk) and software environment (e.g., the operating system, programming language) in which the algorithm is implemented and executed. All other factors being equal, the running time of the same algorithm on the same input data will be smaller if the computer has, say, a much faster processor or if the implementation is done in a program compiled into native machine code instead of an interpreted implementation run on a virtual machine. We begin this chapter by discussing tools for performing experimental studies, yet also limitations to the use of experiments as a primary means for evaluating algorithm efﬁciency.</p>
+<p>主要的分析工具（我们使用的/在这本书里/）包括描述算法和数据结构操作的运行时间，/空间使用也值得我们感兴趣/。运行时间是一个天然的衡量（对于“好”的定义），因为时间是一个宝贵的资源——电脑的act of solving sth应当越快越好。总的来说，运行时间增加随着输入的规模，尽管运行时间也不同对于不同的同样规模的输入。此外，运行时间被硬件环境（处理器，时钟速率，内存，硬盘）和软件环境（操作系统，变成语言）所影响，（算法/在这些环境里面/被实现和执行的）。所有其他的因素相同的情况下，同样算法的运行时间在同样输入的情况下会是更短的如果电脑，比如说，有一个更快的处理器或者如果这个implementation被完成在一个程序（被编译为本地的机器语言而不是一个被解释在虚拟机中运行的实现）中。我们开始这个章节通过讨论用于做尝试性研究的工具也讨论实验的使用作为一个主要的方法用来评估算法效率的限制。</p>
+<p>Focusing on running time as a primary measure of goodness requires that we be able to use a few mathematical tools. In spite of the possible variations that come from different environmental factors, we would like to focus on the relationship between the running time of an algorithm and the size of its input. We are interested in characterizing an algorithm’s running time as a function of the input size. But what is the proper way of measuring it? In this chapter, we “roll up our sleeves” and develop a mathematical way of analyzing algorithms.</p>
+<p>聚焦运行时间作为一个主要的“好”的衡量需要我们能够使用一些数学工具。不管这些可能的变化（来自不同环境因素的），我们希望聚焦这个算法运行时间和输入规模的关系。我们对描述一个算法的运行时间作为一个输入规模的应变量感兴趣。但是什么事正确的方法呢？在这个章节，我们“卷起袖子”然后开发一个数学方法来分析算法。</p>
+<h2 id="4-1、Exprimental-Studies"><a href="#4-1、Exprimental-Studies" class="headerlink" title="4.1、Exprimental Studies"></a>4.1、Exprimental Studies</h2><p>note：和exprimental study是ovservational study，一个是试验性的一个是观察性的。</p>
+<p>One way to study the efﬁciency of an algorithm is to implement it and experiment by running the program on various test inputs while recording the time spent during each execution. A simple mechanism for collecting such running times in Java is based on use of the currentTimeMillis method of the System class. That method reports the number of milliseconds that have passed since a benchmark time known as the epoch (January 1, 1970 UTC). It is not that we are directly interested in the time since the epoch; the key is that if we record the time immediately before executing the algorithm and then immediately after, we can measure the elapsed time of an algorithm’s execution by computing the difference of those times. A typical way to automate this process is shown in Code Fragment 4.1.</p>
+<p>一个研究算法效率的方法是去运行它并且试验通过运行这个程序on不同的测试输入同时记录了每次执行花费的时间。一个简单的机制用于收集这样的运行时间in Java是基于System.currentTimeMillis()的使用。那个方法汇报了毫秒数（从一个基准时间【the epoch (January 1, 1970 UTC)】开始经过的时间）。我们不是对从epoch开始的时间感兴趣；关键是如果我们能够立即记录时间在执行算法之前并且立即记录时间在执行算法之后，我们能够测量这个算法执行的时间通过计算这些时间的差异。一个典型的方法使这个过程自动化的被展示在代码块4.1中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> startTime = System.currentTimeMillis();<span class="comment">//record the starting time</span></span><br><span class="line"><span class="comment">/* (run the algorithm */</span></span><br><span class="line"><span class="keyword">long</span> endTime = System.currentTimeMillis();<span class="comment">//record the ending time</span></span><br><span class="line"><span class="keyword">long</span> elapsed = endTime - startTime;<span class="comment">//compute the elapsed time</span></span><br></pre></td></tr></table></figure>
+
+<p>***                                            Typical approach for timing an algorithm in Java.***</p>
+<p>Measuring elapsed time in this fashion provides a reasonable reﬂection of an algorithm’s efﬁciency; for extremely quick operations, Java provides a method, nanoTime, that measures in nanoseconds rather than milliseconds.</p>
+<p>测量间隔时间/以这种方式/提供了一个合理算法效率的反应；对于更加快速的操作，java提供了nanoTime()，nanoTime以毫微秒测量而不是微妙。</p>
+<p>Because we are interested in the general dependence of running time on the size and structure of the input, we should perform independent experiments on many different test inputs of various sizes. We can then visualize the results by plotting the performance of each run of the algorithm as a point with x-coordinate equal to the input size, n, and y-coordinate equal to the running time, t. Such a visualization provides some intuition regarding the relationship between problem size and execution time for the algorithm. This may be followed by a statistical analysis that seeks to ﬁt the best function of the input size to the experimental data. To be meaningful, this analysis requires that we choose good sample inputs and test enough of them to be able to make sound statistical claims about the algorithm’s running time.</p>
+<p>因为我们对运行时间对输入规模和结构的普遍的依赖，所以我们应该执行独立的实验/以很多不同的测试输入和不同规模的输入/</p>
+<h1 id="13、Text-Processing"><a href="#13、Text-Processing" class="headerlink" title="13、Text Processing"></a>13、Text Processing</h1><p>rule this out 排除</p>
+<h3 id="13-1-1、Notation-for-Character-Strings"><a href="#13-1-1、Notation-for-Character-Strings" class="headerlink" title="13.1.1、Notation for Character Strings"></a>13.1.1、Notation for Character Strings</h3><p>refer to any substring of the form P[0..j] as a prefix of P</p>
+<h2 id="13-2、Brute-Force"><a href="#13-2、Brute-Force" class="headerlink" title="13.2、Brute Force"></a>13.2、Brute Force</h2><h2 id="13-3、Boyer-Moore-Algorithm"><a href="#13-3、Boyer-Moore-Algorithm" class="headerlink" title="13.3、Boyer-Moore Algorithm"></a>13.3、Boyer-Moore Algorithm</h2><p>Heuristic is a technique designed for solving a problem more quickly when classic methods are too slow, or for finding an approximate solution classic methods fail to find any exact solution.</p>
+<p>This is achieved by trading optimality, completeness, accuracy, or precision for speed. In a way, it can be considered a shortcut.</p>
+<p>main idea   adding two potentially time-saving heuristics</p>
+<p><em><strong>Looking-glass(mirror) Heuristic</strong></em>   When testing a possible placement of the pattern against the text, perform the comparisons against the pattern from right to left. </p>
+<p><em><strong>Character-Jump Heuristic</strong></em> During the testing of a possible placement of pattern within the text, a mismatch of character text[i]=c with the corresponding character pattern[k] is handled as follows. If c is not contained anywhere in the pattern, then shift the pattern completely past text[i]=c. Otherwise, shift the pattern until an occurrence of character c gets aligned with text[i].</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2021/12/12/Pattern-matching-Algorithm/" rel="bookmark">Pattern-matching Algorithm</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Algorithm/" rel="tag"><i class="fa fa-tag"></i> Algorithm</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/11/10/%E8%BF%9E%E8%AF%8D/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/12/12/Pattern-matching-Algorithm/" rel="next" title="Pattern-matching Algorithm">
+                  Pattern-matching Algorithm <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ethan Ng</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">22k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">40 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
